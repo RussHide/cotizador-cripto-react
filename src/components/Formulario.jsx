@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { monedas } from "../data";
+import useApi from "../hooks/useApi";
 import { useSelectMonedas } from "../hooks/useSelectMonedas";
 
 const InputSubmit = styled.input`
@@ -23,16 +24,16 @@ const InputSubmit = styled.input`
 
 export const Formulario = () => {
 
-
-
+    const [criptos] = useApi('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD')
     const [moneda, SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas);
+    const [criptomoneda, SelectCriptomonedas] = useSelectMonedas('Elige tu Criptomoneda', criptos);
     return (
         <form>
-            <SelectMonedas/>
-            {moneda}
+            <SelectMonedas />
+            <SelectCriptomonedas />
             <InputSubmit
-            type="submit"
-            value='Cotizar'
+                type="submit"
+                value='Cotizar'
             />
         </form>
     )
