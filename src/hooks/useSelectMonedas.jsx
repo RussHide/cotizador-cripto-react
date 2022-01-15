@@ -4,13 +4,22 @@ const Label = styled.label`
     color: white;
 `
 
-export const useSelectMonedas = (label) => {
-   const SelectMonedas = () => (
-       <>
+export const useSelectMonedas = (label, opciones) => {
+    const SelectMonedas = () => (
+        <>
             <Label htmlFor="">
                 {label}
             </Label>
-       </>
-   )
-   return [SelectMonedas]
+            <select name="" id="">
+                <option value="">Seleccione</option>
+                {opciones.map(opcion => (
+                    <option
+                        key={opcion.id}
+                        value={opcion.id}
+                    >{opcion.nombre}</option>
+                ))}
+            </select>
+        </>
+    )
+    return [SelectMonedas]
 }
