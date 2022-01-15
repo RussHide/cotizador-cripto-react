@@ -25,12 +25,11 @@ export const Formulario = () => {
 
 
 
-    const [SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas);
-    const [SelectCriptomonedas] = useSelectMonedas('Elige tu Criptomoneda', monedas);
+    const [moneda, SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas);
     return (
         <form>
             <SelectMonedas/>
-            <SelectCriptomonedas/>
+            {moneda}
             <InputSubmit
             type="submit"
             value='Cotizar'
