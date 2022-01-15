@@ -1,8 +1,16 @@
-import React from 'react'
+import styled from "@emotion/styled";
 
-export const useSelectMonedas = () => {
-   const selectMonedas = () => {
-       console.log('desde select monedas')
-   }
-   return [selectMonedas];
+const Label = styled.label`
+    color: white;
+`
+
+export const useSelectMonedas = (label) => {
+   const SelectMonedas = () => (
+       <>
+            <Label htmlFor="">
+                {label}
+            </Label>
+       </>
+   )
+   return [SelectMonedas]
 }

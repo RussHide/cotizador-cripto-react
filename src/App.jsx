@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
 import { Formulario } from "./components/Formulario";
-import { useSelectMonedas } from "./hooks/useSelectMonedas";
 import ImagenCripto from './img/imagen-criptos.png';
 
 const Imagen = styled.img`
@@ -42,9 +41,6 @@ const Heading = styled.h1`
 
 function App() {
 
-  const [selectMonedas] = useSelectMonedas();
-
-  selectMonedas();
   return (
     <Contenedor>
       <Imagen
@@ -54,7 +50,6 @@ function App() {
       <div>
         <Heading>Cotiza Criptomonedas al Instante</Heading>
         <Formulario>
-
         </Formulario>
       </div>
     </Contenedor>
