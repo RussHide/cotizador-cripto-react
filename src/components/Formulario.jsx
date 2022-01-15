@@ -24,7 +24,7 @@ const InputSubmit = styled.input`
     }
 `
 
-export const Formulario = () => {
+export const Formulario = ({setMonedas}) => {
 
     const [criptos] = useApi('https://min-api.cryptocompare.com/data/top/totalvolfull?limit=10&tsym=USD');
     const [moneda, SelectMonedas] = useSelectMonedas('Elige tu moneda', monedas);
@@ -36,7 +36,11 @@ export const Formulario = () => {
             setError(true);
             return;
         }
-        setError(false)
+        setError(false);
+        setMonedas({
+            moneda: moneda,
+            criptomoneda: criptomoneda,
+        })
     }
     return (
         <>
